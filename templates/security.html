@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Security Center · Secura{% endblock %}
+{% block content %}
+<section class="security-page security-center">
+  <header class="center-hero">
+    <div class="center-copy">
+      <div class="eyebrow">ACCOUNT SECURITY CENTER</div>
+      <h1>Protection that stays<br><em>a step ahead.</em></h1>
+      <p>Manage your account safeguards, review the latest status, and keep a secure recovery path ready.</p>
+      <div class="center-actions"><a class="button primary" href="#protection">Review protection <span>↓</span></a><a class="button ghost" href="{{ url_for('security_report') }}">↓ Download report</a></div>
+    </div>
+    <aside class="score-card" aria-label="Security score: 92 out of 100"><div class="score-orbit"><div><strong>92</strong><small>/100</small></div></div><div class="score-copy"><small>YOUR SECURITY SCORE</small><h2>Excellent protection</h2><p>Your password, session and login limits are all protected.</p></div><div class="score-progress"><i></i><span>3 safeguards active</span></div></aside>
+  </header>
+  <div class="center-layout" id="protection">
+    <div class="center-column">
+      <section class="center-card"><div class="center-card-heading"><div><small>ACTIVE SAFEGUARDS</small><h2>Sign-in protection</h2><p>Protection applied every time you access your account.</p></div><span class="live-pill"><i></i> Protected</span></div><div class="safeguards"><article><span class="guard-icon violet">⌁</span><div><h3>One-way password hashing</h3><p>bcrypt stores a protected hash, never your original password.</p></div><b class="guard-state">Active</b></article><article><span class="guard-icon teal">◈</span><div><h3>Brute-force protection</h3><p>After 5 failed attempts, the account pauses for 5 minutes.</p></div><b class="guard-state">Active</b></article><article><span class="guard-icon blue">◫</span><div><h3>Secure session controls</h3><p>Private routes require an authenticated, protected session.</p></div><b class="guard-state">Active</b></article></div></section>
+      <section class="center-card"><div class="center-card-heading"><div><small>RECOVERY &amp; ACCESS</small><h2>Keep access in your control</h2><p>Download an account summary or make a secure recovery token.</p></div></div><div class="recovery-grid"><a class="recovery-action report" href="{{ url_for('security_report') }}"><span>↓</span><strong>Security report</strong><small>Download your account protection summary.</small><b>Download →</b></a><form class="recovery-action reset" method="post" action="{{ url_for('reset_demo') }}"><input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"><span>⌁</span><strong>Reset token</strong><small>Create a securely generated demo recovery token.</small><button type="submit">Generate →</button></form></div></section>
+    </div>
+    <aside class="center-column"><section class="center-card account-card"><div class="center-card-heading"><div><small>ACCOUNT STATUS</small><h2>Your protection snapshot</h2></div></div><dl class="account-list"><div><dt>Account</dt><dd>{{ user.username }}</dd></div><div><dt>Password protection</dt><dd><span class="success-text">● bcrypt secured</span></dd></div><div><dt>Last successful sign-in</dt><dd>{{ user.last_login or 'Not recorded yet' }}</dd></div><div><dt>Failed attempts</dt><dd>{{ user.failed_attempts }} of 5</dd></div></dl><div class="account-note"><span>✦</span><p><b>Good security habit:</b> Use a unique password you do not use anywhere else.</p></div></section><section class="center-card encryption-card"><span class="encryption-icon">⌑</span><small>HOW YOUR PASSWORD IS STORED</small><h2>Protected by design.</h2><p>Only a salted bcrypt hash is saved. The original password cannot be read back from the database.</p><code>{{ masked_hash }}</code></section></aside>
+  </div>
+  <section class="security-footer-note"><span>✦</span><p><b>Something look unfamiliar?</b> Use the reset token option, then change your password through the recovery flow. Your account is designed to temporarily lock after repeated failed sign-ins.</p></section>
+</section>
+{% endblock %}

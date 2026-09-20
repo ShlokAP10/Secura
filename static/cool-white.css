@@ -1,0 +1,335 @@
+/* Cool-white application canvas. */
+:root {
+  --ink: #182b4c;
+  --muted: #63738d;
+  --blue: #3f61d8;
+  --teal: #0b9a91;
+  --line: #d7e4f2;
+  --bg: #f2f7fc;
+  --red: #d85570;
+  --gold: #bf7b16;
+}
+
+body {
+  background:
+    radial-gradient(circle at 2% 0, #cfe2ff 0, transparent 34%),
+    radial-gradient(circle at 100% 14%, #cbf5ed 0, transparent 30%),
+    radial-gradient(circle at 50% 100%, #e5dcff 0, transparent 38%),
+    linear-gradient(135deg, #fbfdff 0%, #f2f7fc 52%, #eef8fb 100%);
+}
+
+/* Bright surfaces keep the interface clean against the cool canvas. */
+.navbar {
+  background: linear-gradient(115deg, #ffffffed 0%, #f3f8ffed 100%) !important;
+  border-color: #d6e3f0cc !important;
+  box-shadow: 0 14px 36px #1c4b8020 !important;
+  backdrop-filter: blur(14px);
+}
+
+.feature,
+.stat,
+.activity,
+.hash-card,
+.auth-card,
+.vault-card,
+.security-score,
+.center-card {
+  background: linear-gradient(145deg, #fffffffa 0%, #f4f9fffa 100%) !important;
+  border-color: #dce7f2 !important;
+  box-shadow: 0 14px 32px #244d7a12 !important;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.feature:hover,
+.stat:hover,
+.activity:hover,
+.hash-card:hover,
+.auth-card:hover,
+.vault-card:hover,
+.center-card:hover {
+  border-color: #a9c8ea !important;
+  box-shadow: 0 20px 42px #244d7a20 !important;
+  transform: translateY(-3px);
+}
+
+.auth-card input,
+.ghost,
+.flow-mini span,
+.trust span,
+.vault-grid > div {
+  background: #ffffff !important;
+}
+
+.security-note,
+.sample-hash,
+.account-note,
+.security-footer-note {
+  background: linear-gradient(135deg, #ffffff 0%, #edf7ff 100%) !important;
+}
+
+footer {
+  background: #ffffff99;
+  border-top-color: #dce7f2;
+}
+
+.brand-mark,
+.nav-cta,
+.primary {
+  background: linear-gradient(135deg, #3566cf 0%, #277fc5 52%, #17a99d 100%) !important;
+  box-shadow: 0 9px 20px #2366bd2e;
+}
+
+.nav-cta:hover,
+.primary:hover {
+  box-shadow: 0 13px 26px #2366bd42 !important;
+}
+
+.eyebrow,
+.brand > span:not(.brand-mark) {
+  color: #2d62c5 !important;
+}
+
+.shield,
+.protection-panel,
+.why-card,
+.encryption-card {
+  background: linear-gradient(145deg, #263f82 0%, #286eb0 56%, #15a394 100%) !important;
+  box-shadow: 0 20px 40px #1c559533 !important;
+}
+
+.theme-toggle {
+  border-color: #c7d9ee;
+  color: #3162bd;
+  background: #ffffffd9;
+  box-shadow: 0 6px 14px #244d7a12;
+}
+
+::selection {
+  color: #14344b;
+  background: #bceee7;
+}
+
+.feature:nth-child(1) {
+  background: linear-gradient(145deg, #f3f1ff 0%, #ffffff 72%) !important;
+  border-color: #ddd8ff !important;
+}
+
+.feature:nth-child(2) {
+  background: linear-gradient(145deg, #eafcf8 0%, #ffffff 72%) !important;
+  border-color: #cbeee7 !important;
+}
+
+.feature:nth-child(3) {
+  background: linear-gradient(145deg, #eef6ff 0%, #ffffff 72%) !important;
+  border-color: #d0e2f7 !important;
+}
+
+.feature:nth-child(1) .icon { color: #695ad5 !important; }
+.feature:nth-child(2) .icon { color: #0c9a91 !important; }
+.feature:nth-child(3) .icon { color: #3474cb !important; }
+
+.stat:nth-child(1) { border-top-color: #13a383 !important; }
+.stat:nth-child(2) { border-top-color: #5a65dc !important; }
+.stat:nth-child(3) { border-top-color: #d29529 !important; }
+.stat:nth-child(4) { border-top-color: #2999bf !important; }
+
+.status-pill,
+.protected-badge,
+.live-pill,
+.vault-warning {
+  color: #087567 !important;
+  border-color: #bde9de !important;
+  background: linear-gradient(105deg, #e7faf4, #e8f8ff) !important;
+}
+
+.security-note {
+  border-left-color: #4b6dd2 !important;
+}
+
+.auth-card input:focus {
+  border-color: #5a74d9 !important;
+  box-shadow: 0 0 0 4px #5274d41c !important;
+}
+
+.flash.success {
+  color: #087367;
+  border-color: #b7e9dc;
+  background: #e9faf4;
+}
+
+.flash.error {
+  color: #b43d59;
+  border-color: #f2cad3;
+  background: #fff2f5;
+}
+
+/* Responsive motion gives the cool-white theme a more tactile feel. */
+.navbar,
+.feature,
+.stat,
+.activity,
+.hash-card,
+.auth-card,
+.vault-card,
+.security-score,
+.center-card,
+.button,
+.nav-cta,
+.theme-toggle,
+.float-tag,
+.trust span,
+.flow-mini span {
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease,
+    background-color .24s ease, filter .24s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 18px 42px #1c4b8028 !important;
+}
+
+.button:hover,
+.nav-cta:hover {
+  filter: saturate(1.12) brightness(1.04);
+  transform: translateY(-3px) !important;
+}
+
+.theme-toggle:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #526bdb, #14a497);
+  box-shadow: 0 10px 20px #2865b333;
+  transform: rotate(22deg) scale(1.1);
+}
+
+.float-tag:hover,
+.trust span:hover,
+.flow-mini span:hover {
+  border-color: #a9c9e8;
+  box-shadow: 0 9px 20px #244d7a18;
+  transform: translateY(-3px) scale(1.025);
+}
+
+.brand-mark {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.brand:hover .brand-mark {
+  box-shadow: 0 9px 18px #2865b338;
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.shield,
+.score-card,
+.protection-panel,
+.why-card,
+.encryption-card {
+  transition: transform .32s cubic-bezier(.2, .8, .2, 1), box-shadow .32s ease,
+    filter .32s ease;
+}
+
+.shield:hover {
+  filter: brightness(1.08) saturate(1.1);
+  transform: translateY(-8px) scale(1.04);
+}
+
+.score-card:hover,
+.protection-panel:hover,
+.why-card:hover,
+.encryption-card:hover {
+  box-shadow: 0 26px 48px #1c55954a !important;
+  filter: saturate(1.08);
+  transform: translateY(-5px);
+}
+
+.nav-links a:not(.nav-cta) {
+  transition: color .2s ease, transform .2s ease;
+}
+
+.nav-links a:not(.nav-cta):hover {
+  color: #2e63c8;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shield-orb {
+    animation: cool-float 5s ease-in-out infinite;
+  }
+
+  .brand-mark {
+    animation: soft-glow 3.6s ease-in-out infinite;
+  }
+}
+
+@keyframes cool-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes soft-glow {
+  0%, 100% { box-shadow: 0 0 0 #2865b300; }
+  50% { box-shadow: 0 8px 20px #2865b33d; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Interactive security score card. */
+.score-card {
+  cursor: default;
+  isolation: isolate;
+}
+
+.score-card::before {
+  transition: transform .55s ease, opacity .4s ease, filter .4s ease;
+}
+
+.score-card:hover {
+  box-shadow: 0 30px 58px #174b8a4d !important;
+  transform: translateY(-7px) scale(1.012);
+}
+
+.score-card:hover::before {
+  filter: brightness(1.35);
+  opacity: .95;
+  transform: scale(1.28) translate(-10px, 12px);
+}
+
+.score-orbit,
+.score-orbit::before,
+.score-progress i::after,
+.score-copy h2,
+.score-copy p {
+  transition: transform .42s cubic-bezier(.2, .8, .2, 1), filter .35s ease,
+    letter-spacing .35s ease;
+}
+
+.score-card:hover .score-orbit {
+  filter: drop-shadow(0 0 13px #a9ffed9c);
+  transform: rotate(9deg) scale(1.06);
+}
+
+.score-card:hover .score-orbit::before {
+  transform: rotate(105deg);
+}
+
+.score-card:hover .score-copy h2 {
+  letter-spacing: -.35px;
+  transform: translateX(5px);
+}
+
+.score-card:hover .score-copy p {
+  transform: translateX(5px);
+}
+
+.score-card:hover .score-progress i::after {
+  filter: brightness(1.16);
+  transform: scaleX(1.04);
+  transform-origin: left;
+}
