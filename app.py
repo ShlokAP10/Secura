@@ -282,7 +282,7 @@ def logout():
     flash("You have been logged out safely.", "success")
     return redirect(url_for("home"))
 
+init_db()
 
 if __name__ == "__main__":
-    init_db()
     app.run(debug=os.environ.get("FLASK_DEBUG") == "1")
