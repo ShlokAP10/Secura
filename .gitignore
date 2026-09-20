@@ -1,0 +1,10 @@
+# Local data and development-only files
+secureauth.db
+*.db
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local environment secrets
+.env
+.env.*
