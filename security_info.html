@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}How Secura Works{% endblock %}
+{% block description %}Learn how Secura uses bcrypt password hashing, CSRF protection, secure sessions, and temporary lockouts to protect accounts.{% endblock %}
+{% block content %}
+<section class="security-page public-security">
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">SECURITY, EXPLAINED</div>
+      <h1>Your password never sits in plain text.</h1>
+      <p>Secura is designed to demonstrate the key protections that make account sign-in safer.</p>
+    </div>
+    <div class="protected-badge">⌑ <span>Security-first design</span></div>
+  </div>
+  <div class="security-facts">
+    <article><span>⌁</span><div><small>PASSWORD PROTECTION</small><h3>bcrypt hashing</h3><p>Passwords are salted and transformed into one-way hashes before they are stored.</p></div></article>
+    <article><span>⊘</span><div><small>BRUTE-FORCE DEFENSE</small><h3>5-attempt lockout</h3><p>Five consecutive failed sign-ins pause access for five minutes.</p></div></article>
+    <article><span>◈</span><div><small>SESSION SAFETY</small><h3>Protected sessions</h3><p>Authenticated areas require a valid server-side session and CSRF-protected forms.</p></div></article>
+  </div>
+  <section class="privacy-overview">
+    <div class="section-heading"><div><div class="eyebrow">HOW WE PROTECT YOUR DATA</div><h2>Clear rules, explained simply.</h2></div><p>Security should be understandable—not hidden behind technical language.</p></div>
+    <div class="security-facts">
+      <article><span>◌</span><div><small>PASSWORD POLICY</small><h3>Strong by default</h3><p>Passwords need at least 8 characters, plus uppercase, lowercase, a number, and a symbol.</p></div></article>
+      <article><span>◷</span><div><small>LOCKOUT RULE</small><h3>Five attempts, five minutes</h3><p>Repeated failed sign-ins pause access temporarily to slow down brute-force attacks.</p></div></article>
+      <article><span>⌑</span><div><small>PRIVACY NOTE</small><h3>No plaintext passwords</h3><p>We store your account details and a one-way password hash—never your original password.</p></div></article>
+    </div>
+  </section>
+  <section class="auth-flow">
+    <div class="section-heading"><div><div class="eyebrow">AUTHENTICATION FLOW</div><h2>What happens when you sign in.</h2></div><p>The original password is used only for verification; it is never saved.</p></div>
+    <div class="flow-diagram"><div class="flow-step"><i>⌨</i><span>ENTER PASSWORD</span></div><b>↓</b><div class="flow-step"><i>⌁</i><span>BCRYPT VERIFICATION</span></div><b>↓</b><div class="flow-step"><i>▣</i><span>STORED HASH</span></div><b>↓</b><div class="match"><span>MATCH?</span><div><i class="yes">YES<br><small>LOGIN</small></i><i class="no">NO<br><small>DENIED</small></i></div></div></div>
+  </section>
+  <div class="hero-actions public-security-actions"><a class="button primary" href="{{ url_for('register') }}">Create a protected account <b>→</b></a><a class="button ghost" href="{{ url_for('login') }}">Log in</a></div>
+</section>
+{% endblock %}
